@@ -3,206 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>麻雀トレーニングスタジオ | 基礎から実践まで</title>
-    <meta name="description" content="麻雀の上達を目指す方へ。基礎練習から実戦まで、3つのアプリで段階的に麻雀スキルを向上させます。清一色1000、麻雀何切るAI、麻雀何切る牌効率で確実にレベルアップ。">
-    <meta name="keywords" content="麻雀 アプリ 上達, 麻雀 練習, 麻雀 トレーニング, 清一色, 何切る, 牌効率">
-    <meta property="og:title" content="麻雀トレーニングスタジオ | 基礎から実践まで">
-    <meta property="og:description" content="基礎練習から実戦まで、3つのアプリで段階的に麻雀スキルを向上させます。">
+    <title>麻雀ドリル - アプリで鍛える麻雀力</title>
+    <meta name="description" content="麻雀の上達を支援する3つのアプリ。基礎練習で土台を固め、AI対戦で実力を磨く。清一色1000、麻雀何切るAI、麻雀何切る牌効率で確実にレベルアップ。">
+    <meta name="keywords" content="麻雀 アプリ 上達,麻雀 練習,麻雀 トレーニング,麻雀 AI,清一色,牌効率,何切る">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="麻雀ドリル - アプリで鍛える麻雀力">
+    <meta property="og:description" content="アプリで鍛える麻雀力。基礎練習で土台を固め、AI対戦で実力を磨く。">
     <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta property="og:locale" content="ja_JP">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="麻雀ドリル">
+    <meta name="twitter:description" content="アプリで鍛える麻雀力。基礎練習で土台を固め、AI対戦で実力を磨く。">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "麻雀何切るAI",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "GameApplication",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "ratingCount": "150"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- ヘッダー -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">
-                <svg viewBox="0 0 32 32" fill="currentColor">
-                    <rect x="4" y="4" width="24" height="24" rx="4"/>
-                    <rect x="10" y="10" width="4" height="12" fill="white"/>
-                    <rect x="14" y="10" width="4" height="12" fill="white"/>
-                    <rect x="18" y="10" width="4" height="12" fill="white"/>
-                </svg>
-                麻雀トレーニングスタジオ
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#home">ホーム</a></li>
-                    <li><a href="#journey">学習の流れ</a></li>
-                    <li><a href="#apps">アプリ一覧</a></li>
-                    <li><a href="#start" class="btn btn-primary">始める</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu" onclick="toggleMobileMenu()">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <line x1="3" y1="12" x2="21" y2="12"/>
-                    <line x1="3" y1="18" x2="21" y2="18"/>
-                </svg>
-            </button>
+    <!-- ナビゲーション -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🀄 麻雀ドリル</div>
+            <ul class="nav-links">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#courses">コース</a></li>
+                <li><a href="#apps">アプリ詳細</a></li>
+                <li><a href="#start">始める</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
-
-    <!-- モバイルメニュー -->
-    <div class="mobile-nav" id="mobileNav">
-        <ul>
-            <li><a href="#home" onclick="toggleMobileMenu()">ホーム</a></li>
-            <li><a href="#journey" onclick="toggleMobileMenu()">学習の流れ</a></li>
-            <li><a href="#apps" onclick="toggleMobileMenu()">アプリ一覧</a></li>
-            <li><a href="#start" onclick="toggleMobileMenu()">始める</a></li>
-        </ul>
-    </div>
+    </nav>
 
     <!-- ヒーローセクション -->
     <section class="hero" id="home">
         <div class="hero-container">
-            <div class="hero-content fade-in">
-                <h1>麻雀スキルを<br><span>体系的に習得</span></h1>
-                <p>基礎練習から実戦まで、3つのアプリで段階的に上達。<br>あなたの麻雀力を確実にレベルアップさせます。</p>
+            <div class="hero-content">
+                <h1>麻雀ドリル</h1>
+                <p>アプリで鍛える麻雀力<br>基礎練習から実戦まで、あなたのスキルを確実にレベルアップ。</p>
                 <div class="hero-buttons">
-                    <a href="#apps" class="btn btn-primary">
-                        アプリを見る
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#journey" class="btn btn-outline">学習の流れを見る</a>
+                    <a href="#apps" class="btn-primary">アプリを見る</a>
+                    <a href="#courses" class="btn-secondary">学習コースを見る</a>
                 </div>
             </div>
-            <div class="hero-visual fade-in">
-                <div class="cards-grid">
-                    <div class="card-item">一</div>
-                    <div class="card-item">二</div>
-                    <div class="card-item">三</div>
-                    <div class="card-item">🀄</div>
-                    <div class="card-item">🀅</div>
-                    <div class="card-item">🀆</div>
+            <div class="hero-visual">
+                <div class="app-screenshots">
+                    <div class="screenshot-item portrait">
+                        <img src="assets/nanikiru001.png" alt="麻雀何切るAI アプリ画面" />
+                    </div>
+                    <div class="screenshot-item landscape">
+                        <img src="assets/mentin001.png" alt="清一色1000 アプリ画面" />
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 学習の流れ -->
-    <section class="journey" id="journey">
-        <div class="section-header fade-in">
-            <h2 class="section-title">3ステップで確実に上達</h2>
-            <p class="section-description">基礎から実践まで、段階的に麻雀スキルを磨いていきます</p>
+    <!-- コース概要 -->
+    <section class="course-overview" id="courses">
+        <div class="section-header">
+            <h2 class="section-title">2つのコースで確実に上達</h2>
+            <p class="section-subtitle">基礎を固める練習編と、実戦力を磨く実践編</p>
         </div>
-        <div class="journey-path">
-            <div class="journey-line"></div>
-            <div class="journey-steps">
-                <div class="journey-step fade-in">
-                    <div class="step-icon">
-                        📊
-                        <span class="step-number">1</span>
+        <div class="course-grid">
+            <div class="course-card">
+                <span class="course-badge practice-badge">練習編</span>
+                <h3>基礎力強化コース</h3>
+                <p>麻雀の基本となる牌効率と、高得点の要となる清一色を徹底的にマスター。理論と感覚の両方を養います。</p>
+                <div class="course-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div>
+                            <strong>麻雀何切る牌効率</strong>
+                            <p>受け入れ枚数の計算と効率的な打牌選択</p>
+                        </div>
                     </div>
-                    <h3>牌効率を学ぶ</h3>
-                    <p>受け入れ枚数の計算や効率的な打牌選択の基礎を身につけます</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div>
+                            <strong>清一色1000</strong>
+                            <p>多面待ちを瞬時に見抜く訓練</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="journey-step fade-in">
-                    <div class="step-icon">
-                        🎯
-                        <span class="step-number">2</span>
+            </div>
+            <div class="course-card">
+                <span class="course-badge practical-badge">実践編</span>
+                <h3>実戦力養成コース</h3>
+                <p>最新AIとの対戦を通じて、実際の麻雀で勝つための判断力を養成。プロレベルの思考を身につけます。</p>
+                <div class="course-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🤖</div>
+                        <div>
+                            <strong>麻雀何切るAI</strong>
+                            <p>AIが導く最適解で実戦的な判断力を習得</p>
+                        </div>
                     </div>
-                    <h3>待ち牌を極める</h3>
-                    <p>清一色の多面待ちを瞬時に見抜く力を養成します</p>
-                </div>
-                <div class="journey-step fade-in">
-                    <div class="step-icon">
-                        🤖
-                        <span class="step-number">3</span>
+                    <div class="feature-item">
+                        <div class="feature-icon">💡</div>
+                        <div>
+                            <strong>状況判断力</strong>
+                            <p>場況に応じた柔軟な打牌選択</p>
+                        </div>
                     </div>
-                    <h3>実戦で勝つ</h3>
-                    <p>AIとの対戦で状況判断力と実戦感覚を磨きます</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- アプリ一覧 -->
-    <section class="apps" id="apps">
-        <div class="section-header fade-in">
-            <h2 class="section-title">アプリラインナップ</h2>
-            <p class="section-description">目的に合わせて選べる3つのトレーニングアプリ</p>
+    <!-- アプリ詳細 -->
+    <section class="apps-section" id="apps">
+        <div class="section-header">
+            <h2 class="section-title">3つのアプリで完全マスター</h2>
+            <p class="section-subtitle">それぞれの特徴を活かして、効率的に上達</p>
         </div>
         <div class="apps-container">
-            <!-- 練習編 -->
-            <div class="app-category">
-                <div class="category-header fade-in">
-                    <span class="category-badge practice-badge">練習編</span>
-                    <h3 class="category-title">基礎力を鍛える</h3>
+            <!-- 麻雀何切るAI（実践編） -->
+            <div class="app-showcase">
+                <div class="app-header">
+                    <div class="app-icon-large">🤖</div>
+                    <div class="app-title-group">
+                        <h3 class="app-title">麻雀何切るAI</h3>
+                        <span class="app-category practical-badge">実践編</span>
+                        <span class="app-status-badge status-released">リリース済み</span>
+                    </div>
                 </div>
-                <div class="apps-grid">
-                    <div class="app-card fade-in">
-                        <div class="app-card-header">
-                            <div class="app-icon">📊</div>
-                            <h4 class="app-name">麻雀何切る牌効率</h4>
-                            <span class="app-status">開発中</span>
+                <div class="app-content">
+                    <div>
+                        <p class="app-description">
+                            最新のAI技術を活用した実戦型トレーニングアプリ。プロレベルのAIが、あなたの打牌に対して最適解を提示。実際の対局で勝つための思考法が身につきます。
+                        </p>
+                        <div class="app-highlights">
+                            <div class="highlight">
+                                <div class="highlight-icon">🎯</div>
+                                <div class="highlight-content">
+                                    <h4>プロ級AIの判断</h4>
+                                    <p>局面ごとの最適な打牌をAIが分析・提案</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <div class="highlight-icon">📈</div>
+                                <div class="highlight-content">
+                                    <h4>詳細な解析機能</h4>
+                                    <p>なぜその牌を切るべきかを論理的に説明</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <div class="highlight-icon">🏆</div>
+                                <div class="highlight-content">
+                                    <h4>実戦感覚の養成</h4>
+                                    <p>実際の対局を想定した問題で実力アップ</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="app-card-body">
-                            <p class="app-description">
-                                牌効率の理論を基礎から学べる練習アプリ。受け入れ枚数の計算方法を体系的にマスター。
-                            </p>
-                            <ul class="app-features">
-                                <li>段階的なカリキュラム</li>
-                                <li>自動計算機能</li>
-                                <li>詳細な解説付き</li>
-                            </ul>
-                            <a href="#" class="app-cta coming-soon">Coming Soon</a>
+                        <div class="app-download">
+                            <a href="https://apps.apple.com/us/app/%E9%BA%BB%E9%9B%80%E4%BD%95%E5%88%87%E3%82%8Bai/id6741804459" class="download-btn">
+                                App Storeでダウンロード
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.NaokiNakamichi.nanikiru&hl=ja" class="download-btn playstore">
+                                Google Playでダウンロード
+                            </a>
                         </div>
                     </div>
-                    <div class="app-card fade-in">
-                        <div class="app-card-header">
-                            <div class="app-icon">🀄</div>
-                            <h4 class="app-name">清一色1000</h4>
-                            <span class="app-status">配信中</span>
-                        </div>
-                        <div class="app-card-body">
-                            <p class="app-description">
-                                清一色の多面待ちを完全マスター。1000問以上の問題で待ち牌を瞬時に見抜く力を養成。
-                            </p>
-                            <ul class="app-features">
-                                <li>1000問以上の問題</li>
-                                <li>基礎から応用まで</li>
-                                <li>成績記録機能</li>
-                            </ul>
-                            <div class="app-stores">
-                                <a href="https://apps.apple.com/jp/app/%E6%B8%85%E4%B8%80%E8%89%B21000/id1559676655" class="app-cta">App Store</a>
-                                <a href="https://play.google.com/store/apps/details?id=com.NaokiNakamichi.Mentin&hl=ja" class="app-cta play-store">Play Store</a>
-                            </div>
+                    <div class="app-visual-container">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">AI</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 実践編 -->
-            <div class="app-category">
-                <div class="category-header fade-in">
-                    <span class="category-badge practical-badge">実践編</span>
-                    <h3 class="category-title">実戦力を磨く</h3>
+            <!-- 麻雀何切る牌効率（練習編） -->
+            <div class="app-showcase">
+                <div class="app-header">
+                    <div class="app-icon-large">📊</div>
+                    <div class="app-title-group">
+                        <h3 class="app-title">麻雀何切る牌効率</h3>
+                        <span class="app-category practice-badge">練習編</span>
+                        <span class="app-status-badge status-development">開発中</span>
+                    </div>
                 </div>
-                <div class="apps-grid">
-                    <div class="app-card fade-in">
-                        <div class="app-card-header">
-                            <div class="app-icon">🤖</div>
-                            <h4 class="app-name">麻雀何切るAI</h4>
-                            <span class="app-status">配信中</span>
-                        </div>
-                        <div class="app-card-body">
-                            <p class="app-description">
-                                最新AIが最適解を提示。実戦さながらの状況判断力を身につけ、プロレベルの思考を学べます。
-                            </p>
-                            <ul class="app-features">
-                                <li>プロ級AIの判断</li>
-                                <li>詳細な打牌分析</li>
-                                <li>実戦的な問題集</li>
-                            </ul>
-                            <div class="app-stores">
-                                <a href="https://apps.apple.com/jp/app/%E9%BA%BB%E9%9B%80%E4%BD%95%E5%88%87%E3%82%8Bai/id6741804459" class="app-cta">App Store</a>
-                                <a href="https://play.google.com/store/apps/details?id=com.NaokiNakamichi.nanikiru&hl=ja" class="app-cta play-store">Play Store</a>
+                <div class="app-content">
+                    <div>
+                        <p class="app-description">
+                            牌効率の基礎から応用まで体系的に学べる練習アプリ。受け入れ枚数の計算方法から、実戦での応用まで段階的にマスターできます。
+                        </p>
+                        <div class="app-highlights">
+                            <div class="highlight">
+                                <div class="highlight-icon">📚</div>
+                                <div class="highlight-content">
+                                    <h4>体系的カリキュラム</h4>
+                                    <p>初級から上級まで段階的に学習可能</p>
+                                </div>
                             </div>
+                            <div class="highlight">
+                                <div class="highlight-icon">🔢</div>
+                                <div class="highlight-content">
+                                    <h4>自動計算機能</h4>
+                                    <p>受け入れ枚数を瞬時に計算・表示</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <div class="highlight-icon">💪</div>
+                                <div class="highlight-content">
+                                    <h4>反復練習システム</h4>
+                                    <p>苦手な形を集中的にトレーニング</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-download">
+                            <a href="#" class="download-btn coming-soon-btn">
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-visual-container">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">効</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 清一色1000（練習編） -->
+            <div class="app-showcase">
+                <div class="app-header">
+                    <div class="app-icon-large">🀄</div>
+                    <div class="app-title-group">
+                        <h3 class="app-title">清一色1000</h3>
+                        <span class="app-category practice-badge">練習編</span>
+                        <span class="app-status-badge status-released">リリース済み</span>
+                    </div>
+                </div>
+                <div class="app-content">
+                    <div>
+                        <p class="app-description">
+                            清一色の多面待ちを完璧にマスターするための特化型アプリ。1000問以上の豊富な問題で、どんな複雑な形でも瞬時に待ち牌が分かるようになります。
+                        </p>
+                        <div class="app-highlights">
+                            <div class="highlight">
+                                <div class="highlight-icon">🎓</div>
+                                <div class="highlight-content">
+                                    <h4>段階的学習システム</h4>
+                                    <p>基本形から複雑な多面待ちまで順番に習得</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <div class="highlight-icon">📝</div>
+                                <div class="highlight-content">
+                                    <h4>詳細な解説付き</h4>
+                                    <p>なぜその牌が待ちなのか理論的に説明</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <div class="highlight-icon">📊</div>
+                                <div class="highlight-content">
+                                    <h4>成績管理機能</h4>
+                                    <p>上達の過程を可視化して モチベーションアップ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-download">
+                            <a href="https://apps.apple.com/jp/app/%E6%B8%85%E4%B8%80%E8%89%B21000/id1559676655" class="download-btn">
+                                App Storeでダウンロード
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.NaokiNakamichi.Mentin&hl=ja" class="download-btn playstore">
+                                Google Playでダウンロード
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-visual-container">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">清</div>
                         </div>
                     </div>
                 </div>
@@ -210,54 +307,47 @@
         </div>
     </section>
 
-    <!-- 統計セクション -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-item fade-in">
-                <h3>3</h3>
-                <p>専門アプリ</p>
-            </div>
-            <div class="stat-item fade-in">
-                <h3>1000+</h3>
-                <p>練習問題</p>
-            </div>
-            <div class="stat-item fade-in">
-                <h3>AI</h3>
-                <p>最新技術</p>
-            </div>
-            <div class="stat-item fade-in">
-                <h3>24/7</h3>
-                <p>いつでも練習</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTAセクション -->
-    <section class="cta" id="start">
-        <div class="cta-container fade-in">
-            <h2>今すぐ麻雀マスターへの第一歩を</h2>
-            <p>基礎練習から実戦まで、あなたのペースで確実に上達</p>
+    <!-- CTA セクション -->
+    <section class="cta-section" id="start">
+        <div class="cta-content">
+            <h2 class="cta-title">今すぐ麻雀マスターへの道を歩み始めよう</h2>
+            <p class="cta-subtitle">練習編で基礎を固め、実践編で勝利を掴む</p>
             <div class="hero-buttons">
-                <a href="#apps" class="btn btn-primary">
-                    アプリをダウンロード
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+                <a href="#apps" class="btn-primary">アプリをダウンロード</a>
             </div>
         </div>
     </section>
 
     <!-- フッター -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-links">
-                <a href="#">プライバシーポリシー</a>
-                <a href="#">利用規約</a>
-                <a href="#">お問い合わせ</a>
-                <a href="#">開発者ブログ</a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>アプリ一覧</h4>
+                <ul>
+                    <li><a href="https://apps.apple.com/us/app/%E9%BA%BB%E9%9B%80%E4%BD%95%E5%88%87%E3%82%8Bai/id6741804459">麻雀何切るAI（実践編）</a></li>
+                    <li><a href="#">麻雀何切る牌効率（練習編）</a></li>
+                    <li><a href="https://apps.apple.com/jp/app/%E6%B8%85%E4%B8%80%E8%89%B21000/id1559676655">清一色1000（練習編）</a></li>
+                </ul>
             </div>
-            <p class="footer-copy">&copy; 2024 麻雀トレーニングスタジオ. All rights reserved.</p>
+            <div class="footer-section">
+                <h4>サポート</h4>
+                <ul>
+                    <li><a href="#">よくある質問</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">利用規約</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>開発者情報</h4>
+                <ul>
+                    <li><a href="#">開発者ブログ</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">お知らせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 麻雀ドリル. All rights reserved.</p>
         </div>
     </footer>
 
