@@ -88,9 +88,55 @@ const carousel = {
     }
 };
 
+// アプリカルーセル機能
+const appCarousels = {
+    carousels: [],
+    
+    init() {
+        const carouselElements = document.querySelectorAll('.app-carousel');
+        carouselElements.forEach(element => {
+            const carouselId = element.getAttribute('data-carousel');
+            const track = element.querySelector('.app-carousel-track');
+            const items = element.querySelectorAll('.app-carousel-item');
+            
+            if (items.length > 1) {
+                const carouselObj = {
+                    id: carouselId,
+                    element: element,
+                    track: track,
+                    items: items,
+                    currentSlide: 0
+                };
+                
+                this.carousels.push(carouselObj);
+                this.startAutoPlay(carouselObj);
+            }
+        });
+    },
+    
+    showSlide(carousel, index) {
+        if (carousel.track) {
+            carousel.track.style.transform = `translateX(-${index * 100}%)`;
+            carousel.currentSlide = index;
+        }
+    },
+    
+    nextSlide(carousel) {
+        const next = (carousel.currentSlide + 1) % carousel.items.length;
+        this.showSlide(carousel, next);
+    },
+    
+    startAutoPlay(carousel) {
+        setInterval(() => {
+            this.nextSlide(carousel);
+        }, 3000); // 3秒ごとに切り替え
+    }
+};
+
 // カルーセル初期化
 document.addEventListener('DOMContentLoaded', () => {
     carousel.init();
+    appCarousels.init();
 });
 
 // スクロールアニメーション

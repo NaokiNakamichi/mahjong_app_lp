@@ -207,6 +207,35 @@ nav {
     padding: 20px;
 }
 
+/* アプリカルーセル */
+.app-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.app-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.app-carousel-item {
+    flex: 0 0 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
 /* Navigation Arrows */
 .carousel-nav {
     position: absolute;
