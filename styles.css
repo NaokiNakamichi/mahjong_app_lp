@@ -202,6 +202,7 @@ nav {
 
 /* 縦画面のアプリ画像用のパディング */
 .screenshot-item img[src*="nanikiru001.png"],
+.screenshot-item img[src*="nanikiru_haikouritsu001.png"],
 .screenshot-item img[src*="nanikiru_haikouritsu002.png"] {
     max-width: 70%;
     padding: 20px;
