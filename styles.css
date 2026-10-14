@@ -1,904 +1,604 @@
-* {
+/* ===== デザイントークン ===== */
+:root {
+    --bg: #fdfbf4;          /* クリーム地 */
+    --surface: #ffffff;
+    --ink: #17141b;         /* 本文・太枠 */
+    --muted: #6f6a76;       /* 補足テキスト */
+    --line: rgba(23, 20, 27, 0.15); /* カードの淡い枠 */
+    --green: #10bf7a;       /* アイキャッチ文字 */
+    --felt: #008236;        /* 雀卓の緑 */
+    --yellow: #ffb200;      /* アクティブ・強調 */
+    --red: #f0503c;         /* 実践編バッジ */
+    --shadow-soft: #eee7d9; /* ずらし影 */
+    --radius-card: 18px;
+    --radius-board: 12px;
+    --sidebar-width: 256px;
+    --font: "M PLUS Rounded 1c", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+}
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --primary-green: #00a86b;
-    --primary-red: #dc143c;
-    --accent-gold: #ffd700;
-    --bg-light: #f8f9fa;
-    --bg-dark: #2c3e50;
-    --text-dark: #2c3e50;
-    --text-light: #ffffff;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background: var(--bg-light);
-    overflow-x: hidden;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ナビゲーション */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transition: all 0.3s ease;
+img {
+    display: block;
+    max-width: 100%;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-green);
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
+ul {
     list-style: none;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary-green);
-}
-
-
-/* ヒーローセクション */
-.hero {
-    margin-top: 70px;
-    min-height: 90vh;
-    background: linear-gradient(135deg, #00a86b 0%, #00c851 100%);
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="50" cy="50" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>') repeat;
-    background-size: 100px 100px;
-    animation: rotate 60s linear infinite;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* ===== レイアウト ===== */
+.layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    min-height: 100vh;
 }
 
-.hero-content h1 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    color: var(--text-light);
-    margin-bottom: 20px;
+/* ===== サイドバー ===== */
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 32px 12px;
+    border-right: 2px solid var(--ink);
+    background: var(--bg);
+}
+
+.logo {
+    display: block;
+    padding: 0 12px;
+    font-size: 18px;
     font-weight: 900;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.02em;
 }
 
-.hero-content p {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 40px;
+.side-label {
+    margin: 28px 12px 8px;
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--muted);
 }
 
-.hero-buttons {
+.side-link {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.btn-primary {
-    display: inline-block;
-    padding: 15px 35px;
-    background: var(--accent-gold);
-    color: var(--text-dark);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
-}
-
-.btn-secondary {
-    display: inline-block;
-    padding: 15px 35px;
-    background: transparent;
-    color: var(--text-light);
-    text-decoration: none;
-    border: 2px solid var(--text-light);
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background: var(--text-light);
-    color: var(--primary-green);
-}
-
-.hero-visual {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.15s;
 }
 
-/* Carousel Container */
-.app-screenshots {
-    position: relative;
+.side-link img {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+}
+
+.side-link:hover {
+    background: var(--shadow-soft);
+}
+
+.side-link.is-active {
+    background: var(--yellow);
+}
+
+/* ===== メインカラム ===== */
+.main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.hero,
+.apps-section {
     width: 100%;
-    max-width: 800px;
+    max-width: 640px;
     margin: 0 auto;
-    overflow: hidden;
+    padding: 0 24px;
 }
 
-/* Carousel Track */
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
+/* ===== ヒーロー ===== */
+.hero {
+    padding-top: 48px;
 }
 
-/* Screenshot Items */
-.screenshot-item {
-    flex: 0 0 100%;
-    position: relative;
+.eyebrow {
+    display: block;
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--green);
+    letter-spacing: 0.04em;
+}
+
+.hero h1 {
+    padding: 0 8px;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+.lead {
+    margin-top: 12px;
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+/* 雀卓風のボード */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+    padding: 24px 20px 20px;
+    background: var(--felt);
+    border: 2px solid var(--ink);
+    border-radius: var(--radius-board);
+    box-shadow: 5px 5px 0 var(--shadow-soft);
+}
+
+.board-tile {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 400px;
-}
-
-.screenshot-item img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-/* 縦画面のアプリ画像用のパディング */
-.screenshot-item img[src*="nanikiru001.png"],
-.screenshot-item img[src*="nanikiru_haikouritsu001.png"],
-.screenshot-item img[src*="nanikiru_haikouritsu002.png"] {
-    max-width: 70%;
-    padding: 20px;
-}
-
-/* アプリカルーセル */
-.app-carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.app-carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-}
-
-.app-carousel-item {
-    flex: 0 0 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.app-carousel-item img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-/* Navigation Arrows */
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--primary-green);
-    transition: all 0.3s ease;
-    z-index: 10;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-nav:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-.carousel-nav.prev {
-    left: 20px;
-}
-
-.carousel-nav.next {
-    right: 20px;
-}
-
-/* Carousel Indicators */
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
     gap: 10px;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
-
-.carousel-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.carousel-indicator.active {
-    background: var(--accent-gold);
-    border-color: white;
-    transform: scale(1.2);
-}
-
-.carousel-indicator:hover {
-    background: rgba(255, 255, 255, 0.8);
-}
-
-/* Auto-play animation */
-@keyframes carousel-glow {
-    0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 15px 40px rgba(0, 168, 107, 0.3); }
-}
-
-.app-screenshots.auto-play {
-    animation: carousel-glow 4s ease-in-out infinite;
-}
-
-/* コース概要セクション */
-.course-overview {
-    padding: 100px 20px;
-    background: white;
-}
-
-.section-header {
+    color: #fbfbfd;
+    font-size: 13px;
+    font-weight: 700;
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px;
+    line-height: 1.4;
+}
+
+.board-tile img {
+    width: 88px;
+    height: 88px;
+    border: 2px solid var(--ink);
+    border-radius: 20px;
+    background: var(--surface);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s;
+}
+
+.board-tile:hover img {
+    transform: translateY(-3px);
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    padding: 0 8px;
+}
+
+/* 太枠のピルボタン */
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: var(--surface);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 2px 2px 0 var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-pill span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.btn-pill:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* ===== アプリ紹介 ===== */
+.apps-section {
+    padding-top: 48px;
+    padding-bottom: 64px;
 }
 
 .section-title {
-    font-size: clamp(2rem, 3vw, 3rem);
-    color: var(--text-dark);
-    margin-bottom: 20px;
+    padding: 0 4px;
+    font-size: 18px;
     font-weight: 900;
 }
 
 .section-subtitle {
-    font-size: 1.2rem;
-    color: #6c757d;
+    padding: 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
 }
 
-.course-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 40px;
+.app-card {
+    margin-top: 16px;
+    padding: 20px;
+    background: var(--surface);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-card);
+    scroll-margin-top: 24px;
 }
 
-.course-card {
-    background: var(--bg-light);
-    border-radius: 20px;
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
+.app-card + .app-card {
+    margin-top: 20px;
 }
 
-.course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
-}
-
-.course-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.practice-badge {
-    background: #e3f2fd;
-    color: #1976d2;
-}
-
-.practical-badge {
-    background: #fce4ec;
-    color: #c2185b;
-}
-
-.course-card h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--text-dark);
-}
-
-.course-card p {
-    color: #6c757d;
-    margin-bottom: 30px;
-    line-height: 1.8;
-}
-
-.course-features {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.feature-item {
+.app-card-head {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
 }
 
-.feature-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--primary-green);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
+.app-icon {
+    width: 64px;
+    height: 64px;
+    border: 2px solid var(--ink);
+    border-radius: 16px;
     flex-shrink: 0;
-}
-
-/* アプリ詳細セクション */
-.apps-section {
-    padding: 100px 20px;
-    background: var(--bg-light);
-}
-
-.apps-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.app-showcase {
-    background: white;
-    border-radius: 30px;
-    padding: 60px;
-    margin-bottom: 40px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
-    position: relative;
-    overflow: hidden;
-}
-
-.app-showcase::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 5px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--primary-green), var(--primary-red));
-}
-
-.app-header {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.app-icon-large {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, var(--primary-green), #00c851);
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: white;
-    box-shadow: 0 10px 30px rgba(0, 168, 107, 0.3);
-}
-
-.app-title-group {
-    flex: 1;
 }
 
 .app-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: var(--text-dark);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.3;
 }
 
-.app-category {
+.badge {
     display: inline-block;
-    padding: 6px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-right: 10px;
+    padding: 1px 10px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1.6;
 }
 
-.app-status-badge {
-    display: inline-block;
-    padding: 6px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
+.badge-practice {
+    background: var(--yellow);
 }
 
-.status-released {
-    background: #d4edda;
-    color: #155724;
-}
-
-.status-development {
-    background: #fff3cd;
-    color: #856404;
-}
-
-.app-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.app-info {
-    flex: 1;
+.badge-practical {
+    background: var(--red);
+    color: #fff;
 }
 
 .app-description {
-    font-size: 1.1rem;
-    color: #6c757d;
-    margin-bottom: 30px;
-    line-height: 1.8;
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
 }
 
-.app-highlights {
+.app-lead {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.6;
+}
+
+.app-lead + .app-description {
+    margin-top: 4px;
+}
+
+/* 数字で見る */
+.stats {
     display: grid;
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 16px;
 }
 
-.highlight {
+.stat {
     display: flex;
-    gap: 15px;
-    align-items: start;
-}
-
-.highlight-icon {
-    width: 50px;
-    height: 50px;
-    background: #e8f5e9;
-    border-radius: 15px;
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: var(--primary-green);
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-.highlight-content h4 {
-    margin-bottom: 5px;
-    color: var(--text-dark);
-}
-
-.highlight-content p {
-    color: #6c757d;
-    font-size: 0.95rem;
-}
-
-.app-visual-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    min-height: 500px;
-}
-
-.app-screenshot {
-    width: 250px;
-    height: 450px;
-    object-fit: contain;
-}
-
-.app-screenshot.landscape {
-    width: 400px;
-    height: auto;
-    max-height: 300px;
-}
-
-.coming-soon-placeholder {
-    width: 250px;
-    height: 450px;
-    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.placeholder-text {
-    font-size: 1.5rem;
-    color: #6c757d;
-    font-weight: bold;
-}
-
-.app-download {
-    margin-top: 40px;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.store-badge {
-    display: inline-block;
-    transition: all 0.3s ease;
-}
-
-.store-badge:hover {
-    transform: translateY(-3px);
-    opacity: 0.9;
-}
-
-.store-badge img {
-    height: 60px;
-    width: auto;
-}
-
-.download-btn {
-    display: inline-block;
-    padding: 15px 40px;
-    background: var(--text-dark);
-    color: white;
-    text-decoration: none;
+    padding: 10px 4px;
+    background: #f1ece2;
     border-radius: 10px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.download-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.stat-num {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.3;
 }
 
-.download-btn.playstore {
-    background: #00a86b;
+.stat-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
 }
 
-.coming-soon-btn {
-    background: #6c757d;
-    cursor: not-allowed;
-}
-
-/* CTA セクション */
-.cta-section {
-    padding: 100px 20px;
-    background: linear-gradient(135deg, var(--primary-red) 0%, #ff1744 100%);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-section::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="20" width="20" height="30" fill="rgba(255,255,255,0.05)" transform="rotate(45 30 35)"/><rect x="60" y="40" width="20" height="30" fill="rgba(255,255,255,0.05)" transform="rotate(-30 70 55)"/></svg>') repeat;
-    background-size: 100px 100px;
-    animation: float-bg 30s linear infinite;
-}
-
-@keyframes float-bg {
-    from { transform: translate(0, 0); }
-    to { transform: translate(-100px, -100px); }
-}
-
-.cta-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cta-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: white;
-    margin-bottom: 20px;
+.sub-title {
+    margin-top: 22px;
+    font-size: 14px;
     font-weight: 900;
 }
 
-.cta-subtitle {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 40px;
-}
-
-/* フッター */
-footer {
-    padding: 60px 20px 30px;
-    background: var(--bg-dark);
-    color: var(--text-light);
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+/* 機能紹介（画像付き） */
+.features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 10px;
 }
 
-.footer-section h4 {
-    margin-bottom: 20px;
-    color: var(--accent-gold);
+.feature {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.footer-section ul {
-    list-style: none;
+.feature-shot {
+    aspect-ratio: 4 / 3;
+    background: var(--bg);
+    border-bottom: 2px solid var(--line);
+    overflow: hidden;
 }
 
-.footer-section li {
-    margin-bottom: 10px;
+.feature-shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
 }
 
-.footer-section a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* 1列ぶち抜きの機能カード（奇数枚のときの先頭用） */
+.feature-wide {
+    grid-column: 1 / -1;
 }
 
-.footer-section a:hover {
-    color: var(--accent-gold);
+.feature-wide .feature-shot {
+    aspect-ratio: 16 / 9;
 }
 
-.footer-bottom {
+.feature figcaption {
+    padding: 10px 12px 12px;
+}
+
+.feature h4 {
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.feature p {
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.sub-title + .points {
+    margin-top: 10px;
+}
+
+.app-note {
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+/* スクリーンショット（横スクロール） */
+.shots {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.shots::-webkit-scrollbar {
+    display: none;
+}
+
+.shots img {
+    flex: 0 0 auto;
+    width: 40%;
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg);
+    scroll-snap-align: start;
+}
+
+.shots.landscape img {
+    width: 88%;
+}
+
+/* 特徴リスト */
+.points {
+    display: grid;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+}
+
+.point-num {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    background: #f1ece2;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--muted);
+}
+
+.points h4 {
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.points p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.app-download {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.store-badge img {
+    height: 44px;
+    width: auto;
+}
+
+/* ===== フッター ===== */
+.footer {
+    margin-top: auto;
+    padding: 28px 24px;
+    border-top: 1px solid var(--line);
     text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    color: var(--muted);
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 968px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/* ===== モバイル ===== */
+@media (max-width: 860px) {
+    .layout {
+        grid-template-columns: minmax(0, 1fr);
     }
 
-    .nav-links.active {
+    .sidebar {
+        min-width: 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        height: auto;
         display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border-right: none;
+        border-bottom: 2px solid var(--ink);
+        overflow-x: auto;
+        scrollbar-width: none;
     }
 
-
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .sidebar::-webkit-scrollbar {
+        display: none;
     }
 
-    .app-screenshots {
-        max-width: 600px;
-        border-radius: 15px;
-    }
-    
-    .screenshot-item {
-        min-height: 350px;
-    }
-    
-    .carousel-nav {
-        width: 40px;
-        height: 40px;
+    .logo {
+        flex-shrink: 0;
+        padding: 0 8px 0 4px;
         font-size: 16px;
     }
-    
-    .carousel-nav.prev {
-        left: 10px;
-    }
-    
-    .carousel-nav.next {
-        right: 10px;
+
+    .side-label {
+        display: none;
     }
 
-    .course-grid {
-        grid-template-columns: 1fr;
+    .side-nav {
+        display: flex;
+        gap: 4px;
     }
 
-    .app-row {
-        grid-template-columns: 1fr;
+    .side-link {
+        padding: 6px 10px;
+        font-size: 12px;
+        white-space: nowrap;
     }
 
-    .app-visual-container {
-        order: -1;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
+    .side-link img {
+        width: 20px;
+        height: 20px;
     }
 
-    .app-screenshots {
-        max-width: 400px;
-        border-radius: 10px;
-    }
-    
-    .screenshot-item {
-        min-height: 300px;
-    }
-    
-    .carousel-nav {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-    }
-    
-    .carousel-indicators {
-        bottom: 15px;
-        gap: 8px;
-    }
-    
-    .carousel-indicator {
-        width: 10px;
-        height: 10px;
+    .hero,
+    .apps-section {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
-    .app-showcase {
-        padding: 30px;
-    }
-
-    .app-header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .app-visual-container {
-        padding: 20px;
-        min-height: 300px;
-    }
-    
-    .app-screenshot {
-        width: 180px;
-        height: 320px;
-    }
-    
-    .app-screenshot.landscape {
-        width: 300px;
-        height: auto;
-        max-height: 200px;
-    }
-    
-    .coming-soon-placeholder {
-        width: 180px;
-        height: 320px;
+    .hero {
+        padding-top: 32px;
     }
 }
 
 @media (max-width: 480px) {
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .app-title {
-        font-size: 1.8rem;
-    }
-
-    .course-card {
-        padding: 30px 20px;
-    }
-
-    .app-screenshots {
-        max-width: 320px;
-    }
-    
-    .screenshot-item {
-        min-height: 250px;
-    }
-    
-    .carousel-nav {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
-    }
-    
-    .carousel-nav.prev {
-        left: 5px;
-    }
-    
-    .carousel-nav.next {
-        right: 5px;
-    }
-    
-    .carousel-indicators {
-        bottom: 10px;
+    .board {
+        padding: 18px 10px 14px;
         gap: 6px;
     }
-    
-    .carousel-indicator {
-        width: 8px;
-        height: 8px;
+
+    .board-tile {
+        font-size: 11px;
+    }
+
+    .board-tile img {
+        width: 68px;
+        height: 68px;
+        border-radius: 16px;
+    }
+
+    .app-card {
+        padding: 16px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-shot {
+        aspect-ratio: 16 / 10;
+    }
+
+    .store-badge img {
+        height: 40px;
     }
 }

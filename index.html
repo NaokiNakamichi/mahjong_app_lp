@@ -62,7 +62,7 @@
         "name": "清一色1000",
         "operatingSystem": "iOS, Android",
         "applicationCategory": "GameApplication",
-        "description": "清一色の多面待ちを完璧にマスターするための特化型アプリ。1000問以上の豊富な問題で、どんな複雑な形でも瞬時に待ち牌が分かる。",
+        "description": "清一色の待ち当てと何切るに特化したトレーニングアプリ。何待ち・何切るの計2,826問、段位挑戦、タイムアタック、週間ランキングを搭載。",
         "downloadUrl": [
             "https://apps.apple.com/jp/app/%E6%B8%85%E4%B8%80%E8%89%B21000/id1559676655",
             "https://play.google.com/store/apps/details?id=com.NaokiNakamichi.Mentin&hl=ja"
@@ -74,8 +74,31 @@
         }
     }
     </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "麻雀何切る牌効率",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "GameApplication",
+        "description": "一向聴・二向聴の何切る4,879問で牌効率を鍛えるアプリ。有効牌と期待値の一覧で答え合わせ、みんなの回答統計、ユーザー投稿の何切るに対応。",
+        "downloadUrl": [
+            "https://apps.apple.com/jp/app/id6748280970",
+            "https://play.google.com/store/apps/details?id=com.naokinakamichi.nanikiru_haikouritsu"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap">
+    <link rel="stylesheet" href="styles.css?v=20261014b">
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0X4RPMW502"></script>
@@ -87,247 +110,220 @@
     </script>
 </head>
 <body>
-    <!-- ナビゲーション -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">🀄 麻雀ドリル</div>
-        </div>
-    </nav>
+    <div class="layout">
+        <!-- サイドバー（モバイルでは上部バー） -->
+        <aside class="sidebar">
+            <a href="#home" class="logo">麻雀ドリル</a>
+            <h2 class="side-label">どれで鍛える？</h2>
+            <ul class="side-nav">
+                <li><a href="#mentin" class="side-link"><img src="assets/icon_mentin.png" alt="" width="24" height="24">清一色1000</a></li>
+                <li><a href="#haikouritsu" class="side-link"><img src="assets/icon_nanikiru_haikouritsu.png" alt="" width="24" height="24">麻雀何切る牌効率</a></li>
+                <li><a href="#nanikiru" class="side-link"><img src="assets/icon_nanikiru.png" alt="" width="24" height="24">麻雀何切るAI</a></li>
+            </ul>
+        </aside>
 
-    <!-- ヒーローセクション -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
+        <main class="main">
+            <!-- ヒーローセクション -->
+            <section class="hero" id="home">
+                <span class="eyebrow">DRILL</span>
                 <h1>麻雀ドリル</h1>
-                <p>アプリで鍛える麻雀力<br>基礎練習から実戦まで、あなたのスキルを確実にレベルアップ。</p>
-                <div class="hero-buttons">
-                    <a href="#apps" class="btn-primary">アプリを見る</a>
+                <p class="lead">アプリで鍛える麻雀力<br>基礎練習から実戦まで、あなたのスキルを確実にレベルアップ。</p>
+                <div class="board">
+                    <a href="#mentin" class="board-tile"><img src="assets/icon_mentin.png" alt="清一色1000" width="88" height="88"><span>清一色1000</span></a>
+                    <a href="#haikouritsu" class="board-tile"><img src="assets/icon_nanikiru_haikouritsu.png" alt="麻雀何切る牌効率" width="88" height="88"><span>麻雀何切る牌効率</span></a>
+                    <a href="#nanikiru" class="board-tile"><img src="assets/icon_nanikiru.png" alt="麻雀何切るAI" width="88" height="88"><span>麻雀何切るAI</span></a>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <div class="app-screenshots">
-                    <div class="carousel-track">
-                        <div class="screenshot-item active">
-                            <img src="assets/nanikiru001.png" alt="麻雀何切るAI アプリ画面" />
-                        </div>
-                        <div class="screenshot-item">
-                            <img src="assets/mentin001.png" alt="清一色1000 アプリ画面" />
-                        </div>
-                        <div class="screenshot-item">
-                            <img src="assets/nanikiru_haikouritsu001.png" alt="麻雀何切る牌効率 アプリ画面" />
-                        </div>
-                        <div class="screenshot-item clone">
-                            <img src="assets/nanikiru001.png" alt="麻雀何切るAI アプリ画面" />
-                        </div>
-                    </div>
-                    <div class="carousel-indicators">
-                        <span class="carousel-indicator active" data-slide="0"></span>
-                        <span class="carousel-indicator" data-slide="1"></span>
-                        <span class="carousel-indicator" data-slide="2"></span>
-                    </div>
+                <div class="hero-actions">
+                    <a href="#apps" class="btn-pill">アプリを見る<span aria-hidden="true">›</span></a>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
+            <!-- アプリ詳細 -->
+            <section class="apps-section" id="apps">
+                <h2 class="section-title">3つのアプリで完全マスター</h2>
+                <p class="section-subtitle">それぞれの特徴を活かして、効率的に上達</p>
 
-    <!-- アプリ詳細 -->
-    <section class="apps-section" id="apps">
-        <div class="section-header">
-            <h2 class="section-title">3つのアプリで完全マスター</h2>
-            <p class="section-subtitle">それぞれの特徴を活かして、効率的に上達</p>
-        </div>
-        <div class="apps-container">
             <!-- 清一色1000（練習編） -->
-            <div class="app-showcase">
-                <div class="app-row">
-                    <div class="app-info">
-                        <div class="app-header">
-                            <div class="app-title-group">
-                                <h3 class="app-title">清一色1000</h3>
-                                <span class="app-category practice-badge">練習編</span>
-                            </div>
-                        </div>
-                        <p class="app-description">
-                            清一色の多面待ちを完璧にマスターするための特化型アプリ。1000問以上の豊富な問題で、どんな複雑な形でも瞬時に待ち牌が分かるようになります。
-                        </p>
-                        <div class="app-highlights">
-                            <div class="highlight">
-                                <div class="highlight-icon">🎓</div>
-                                <div class="highlight-content">
-                                    <h4>段階的学習システム</h4>
-                                    <p>7枚での簡単な問題からスタート</p>
-                                </div>
-                            </div>
-                            <div class="highlight">
-                                <div class="highlight-icon">📝</div>
-                                <div class="highlight-content">
-                                    <h4>復習機能</h4>
-                                    <p>過去の間違えた問題を繰り返し学習できる</p>
-                                </div>
-                            </div>
-                            <div class="highlight">
-                                <div class="highlight-icon">⏱️</div>
-                                <div class="highlight-content">
-                                    <h4>タイムアタック</h4>
-                                    <p>本番さながらの緊張感で問題に挑戦、ランキング機能も完備</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="app-download">
-                            <a href="https://apps.apple.com/jp/app/%E6%B8%85%E4%B8%80%E8%89%B21000/id1559676655" class="store-badge">
-                                <img src="assets/App_Store_Badge_JP.svg" alt="App Storeでダウンロード" />
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.NaokiNakamichi.Mentin&hl=ja" class="store-badge">
-                                <img src="assets/GetItOnGooglePlay_Badge_Web_color_Japanese.png" alt="Google Playで手に入れよう" />
-                            </a>
-                        </div>
+            <article class="app-card" id="mentin">
+                <header class="app-card-head">
+                    <img class="app-icon" src="assets/icon_mentin.png" alt="" width="64" height="64">
+                    <div>
+                        <span class="badge badge-practice">練習編</span>
+                        <h3 class="app-title">清一色1000</h3>
                     </div>
-                    <div class="app-visual-container">
-                        <div class="app-carousel" data-carousel="mentin">
-                            <div class="app-carousel-track">
-                                <div class="app-carousel-item active">
-                                    <img src="assets/mentin001.png" alt="清一色1000 アプリ画面" class="app-screenshot landscape" />
-                                </div>
-                                <div class="app-carousel-item">
-                                    <img src="assets/mentin002.png" alt="清一色1000 アプリ画面" class="app-screenshot landscape" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </header>
+                <p class="app-lead">清一色の待ち当てと何切るに特化したトレーニングアプリ。</p>
+                <p class="app-description">何待ち1,326問・何切る1,500問の計2,826問を収録。段位挑戦やタイムアタックで、清一色の読みの速さと正確さを鍛えます。</p>
+                <div class="stats">
+                    <div class="stat"><span class="stat-num">2,826</span><span class="stat-label">収録問題</span></div>
+                    <div class="stat"><span class="stat-num">20</span><span class="stat-label">段級位</span></div>
+                    <div class="stat"><span class="stat-num">3</span><span class="stat-label">対応言語</span></div>
                 </div>
-            </div>
+                <h4 class="sub-title">主な機能</h4>
+                <div class="features">
+                    <figure class="feature feature-wide">
+                        <div class="feature-shot"><img src="assets/features/mentin_breakdown.jpg" alt="清一色1000：答え合わせ画面の面子分解パターン" loading="lazy"></div>
+                        <figcaption>
+                            <h4>答え合わせで面子分解を表示</h4>
+                            <p>回答後に、待ちごとの面子分解パターンを面子・雀頭・待ち関連に色分けして表示。なぜその待ちになるのかを形で理解できます（無料版は1日5回、Proは無制限）。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/mentin_rank.jpg" alt="清一色1000：段位挑戦" loading="lazy"></div>
+                        <figcaption>
+                            <h4>段位挑戦</h4>
+                            <p>10級から十段までの昇格試験に挑戦。試験後は1問ずつ振り返れて、全ユーザーの段位分布も見られます。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/mentin_nanikiru.jpg" alt="清一色1000：何切るモード" loading="lazy"></div>
+                        <figcaption>
+                            <h4>何切るモード</h4>
+                            <p>11枚・14枚の聴牌形から、いちばん広い待ちになる打牌を選ぶ練習。待ちの枚数と点数で答え合わせします。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/mentin_free_board.jpg" alt="清一色1000：フリーボード" loading="lazy"></div>
+                        <figcaption>
+                            <h4>フリーボード</h4>
+                            <p>出題中の手牌をドラッグで自由に並べ替えて、面子の切り分けを試しながら考えられます。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/mentin_goal.jpg" alt="清一色1000：目標とヒートマップ" loading="lazy"></div>
+                        <figcaption>
+                            <h4>目標とヒートマップ</h4>
+                            <p>1日の目標問題数を決めて、達成率と連続達成日数を記録。週・月・年の活動もひと目で分かります。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/mentin_share_card.jpg" alt="清一色1000：シェアカード" loading="lazy"></div>
+                        <figcaption>
+                            <h4>シェアカード</h4>
+                            <p>問題やタイムアタックの結果を画像にして、SNSにそのまま投稿できます。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/mentin_home_widget.jpg" alt="清一色1000：ホーム画面ウィジェット" loading="lazy"></div>
+                        <figcaption>
+                            <h4>ホーム画面ウィジェット</h4>
+                            <p>1時間ごとに問題が切り替わるウィジェット。タップするとその問題をすぐに解けます。</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <h4 class="sub-title">ほかにも</h4>
+                <ul class="points">
+                    <li><span class="point-num">01</span><div><h4>タイムアタック</h4><p>持ち時間60秒、正解ごとに+3秒。毎週月曜にリセットされる週間ランキングで競えます。</p></div></li>
+                    <li><span class="point-num">02</span><div><h4>牌姿を作る</h4><p>自分で組んだ手牌の待ちと点数（ロン・ツモ）を表示。保存して後から見返せます。</p></div></li>
+                    <li><span class="point-num">03</span><div><h4>縦画面にも対応</h4><p>縦・横・自動から画面の向きを選べます。日本語・英語・中国語に対応。</p></div></li>
+                </ul>
+                <div class="app-download">
+                    <a href="https://apps.apple.com/jp/app/%E6%B8%85%E4%B8%80%E8%89%B21000/id1559676655" class="store-badge"><img src="assets/App_Store_Badge_JP.svg" alt="App Storeでダウンロード"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.NaokiNakamichi.Mentin&hl=ja" class="store-badge"><img src="assets/GetItOnGooglePlay_Badge_Web_color_Japanese.png" alt="Google Playで手に入れよう"></a>
+                </div>
+            </article>
 
             <!-- 麻雀何切る牌効率（練習編） -->
-            <div class="app-showcase">
-                <div class="app-row">
-                    <div class="app-info">
-                        <div class="app-header">
-                            <div class="app-title-group">
-                                <h3 class="app-title">麻雀何切る牌効率</h3>
-                                <span class="app-category practice-badge">練習編</span>
-                            </div>
-                        </div>
-                        <p class="app-description">
-                            平面何切るから牌効率の基礎を反復的に練習できるアプリ。受け入れ枚数と打点期待値の感覚を養います。
-                        </p>
-                        <div class="app-highlights">
-                            <div class="highlight">
-                                <div class="highlight-icon">📚</div>
-                                <div class="highlight-content">
-                                    <h4>1万問以上の問題を収録</h4>
-                                    <p>牌効率の基礎を徹底的に練習</p>
-                                </div>
-                            </div>
-                            <div class="highlight">
-                                <div class="highlight-icon">🔢</div>
-                                <div class="highlight-content">
-                                    <h4>実践に役立つ判断力を養う</h4>
-                                    <p>受け入れ枚数と打点期待値の数値感覚を養う</p>
-                                </div>
-                            </div>
-                            <div class="highlight">
-                                <div class="highlight-icon">💪</div>
-                                <div class="highlight-content">
-                                    <h4>反復練習システム</h4>
-                                    <p>苦手な問題は復習機能で強化</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="app-download">
-                            <a href="https://apps.apple.com/jp/app/id6748280970" class="store-badge">
-                                <img src="assets/App_Store_Badge_JP.svg" alt="App Storeでダウンロード" />
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.naokinakamichi.nanikiru_haikouritsu" class="store-badge">
-                                <img src="assets/GetItOnGooglePlay_Badge_Web_color_Japanese.png" alt="Google Playで手に入れよう" />
-                            </a>
-                        </div>
+            <article class="app-card" id="haikouritsu">
+                <header class="app-card-head">
+                    <img class="app-icon" src="assets/icon_nanikiru_haikouritsu.png" alt="" width="64" height="64">
+                    <div>
+                        <span class="badge badge-practice">練習編</span>
+                        <h3 class="app-title">麻雀何切る牌効率</h3>
                     </div>
-                    <div class="app-visual-container">
-                        <div class="app-carousel" data-carousel="haikouritsu">
-                            <div class="app-carousel-track">
-                                <div class="app-carousel-item active">
-                                    <img src="assets/nanikiru_haikouritsu001.png" alt="麻雀何切る牌効率 アプリ画面" class="app-screenshot" />
-                                </div>
-                                <div class="app-carousel-item">
-                                    <img src="assets/nanikiru_haikouritsu002.png" alt="麻雀何切る牌効率 アプリ画面" class="app-screenshot" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </header>
+                <p class="app-lead">一向聴・二向聴の何切るで、牌効率の基礎を反復練習するアプリ。</p>
+                <p class="app-description">4,879問を収録し、全問に100回以上の実際の回答データがあります。打牌ごとの有効牌と期待値を一覧で比べて、受け入れ枚数と打点の感覚を養います。</p>
+                <div class="stats">
+                    <div class="stat"><span class="stat-num">4,879</span><span class="stat-label">出題問題</span></div>
+                    <div class="stat"><span class="stat-num">3</span><span class="stat-label">難易度</span></div>
+                    <div class="stat"><span class="stat-num">100+</span><span class="stat-label">各問の回答数</span></div>
                 </div>
-            </div>
+                <h4 class="sub-title">主な機能</h4>
+                <div class="features">
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/haikouritsu_result.jpg" alt="麻雀何切る牌効率：期待値と有効牌で答え合わせ" loading="lazy"></div>
+                        <figcaption>
+                            <h4>期待値と有効牌で答え合わせ</h4>
+                            <p>すべての打牌の有効牌・枚数・期待値を一覧表示。シャンテン戻しにも印が付きます。1位との差が3%以内なら「次善手」として正解扱いに。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/haikouritsu_stats.jpg" alt="麻雀何切る牌効率：みんなの回答統計" loading="lazy"></div>
+                        <figcaption>
+                            <h4>みんなの回答統計</h4>
+                            <p>その問題でほかのプレイヤーが何を切ったかを円グラフで表示。自分の選択がどれだけ多数派かが分かります（プレミアム）。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/haikouritsu_minna.jpg" alt="麻雀何切る牌効率：みんなの何切る（β）" loading="lazy"></div>
+                        <figcaption>
+                            <h4>みんなの何切る（β）</h4>
+                            <p>ユーザーが投稿した何切る問題に答えて、理由を書き合えます。手牌を入れるだけで自分の問題も投稿でき、牌効率は自動で計算されます。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/haikouritsu_record.jpg" alt="麻雀何切る牌効率：学習記録" loading="lazy"></div>
+                        <figcaption>
+                            <h4>学習記録</h4>
+                            <p>正解率と解いた問題数を、期間ごとに日別・累計のグラフで振り返れます。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/haikouritsu_review.jpg" alt="麻雀何切る牌効率：復習" loading="lazy"></div>
+                        <figcaption>
+                            <h4>復習</h4>
+                            <p>不正解・お気に入り・メモをつけた問題をタブで整理。ランダムに出題して弱点をつぶせます。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="feature">
+                        <div class="feature-shot"><img src="assets/features/haikouritsu_profile.jpg" alt="麻雀何切る牌効率：端末間のデータ同期" loading="lazy"></div>
+                        <figcaption>
+                            <h4>端末間のデータ同期</h4>
+                            <p>Google または Apple でサインインすると、学習データを別の端末に引き継げます。プロフィールとアバターも設定できます。</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <p class="app-note">※期待値は他家の動きを考えない18巡のシミュレーションで計算しています（四人麻雀・門前のみ）。</p>
+                <div class="app-download">
+                    <a href="https://apps.apple.com/jp/app/id6748280970" class="store-badge"><img src="assets/App_Store_Badge_JP.svg" alt="App Storeでダウンロード"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.naokinakamichi.nanikiru_haikouritsu" class="store-badge"><img src="assets/GetItOnGooglePlay_Badge_Web_color_Japanese.png" alt="Google Playで手に入れよう"></a>
+                </div>
+            </article>
 
             <!-- 麻雀何切るAI（実践編） -->
-            <div class="app-showcase">
-                <div class="app-row">
-                    <div class="app-info">
-                        <div class="app-header">
-                            <div class="app-title-group">
-                                <h3 class="app-title">麻雀何切るAI</h3>
-                                <span class="app-category practical-badge">実践編</span>
-                            </div>
-                        </div>
-                        <p class="app-description">
-                            最新のAIを活用した実戦型トレーニングアプリ。<br>実際の対局で勝つための思考法が身につきます。
-                        </p>
-                        <div class="app-highlights">
-                            <div class="highlight">
-                                <div class="highlight-icon">🎯</div>
-                                <div class="highlight-content">
-                                    <h4>総合的な局面解析</h4>
-                                    <p>手牌だけでなく他家の捨て牌や点数状況まで考慮</p>
-                                </div>
-                            </div>
-                            <div class="highlight">
-                                <div class="highlight-icon">📚</div>
-                                <div class="highlight-content">
-                                    <h4>幅広い局面に対応</h4>
-                                    <p>立直への対応、点数差考慮、鳴き判断まで網羅</p>
-                                </div>
-                            </div>
-                            <div class="highlight">
-                                <div class="highlight-icon">🎮</div>
-                                <div class="highlight-content">
-                                    <h4>レベル別クイズ形式</h4>
-                                    <p>初心者から上級者まで自分に合った難易度で学習</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="app-download">
-                            <a href="https://apps.apple.com/us/app/%E9%BA%BB%E9%9B%80%E4%BD%95%E5%88%87%E3%82%8Bai/id6741804459" class="store-badge">
-                                <img src="assets/App_Store_Badge_JP.svg" alt="App Storeでダウンロード" />
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.NaokiNakamichi.nanikiru&hl=ja" class="store-badge">
-                                <img src="assets/GetItOnGooglePlay_Badge_Web_color_Japanese.png" alt="Google Playで手に入れよう" />
-                            </a>
-                        </div>
+            <article class="app-card" id="nanikiru">
+                <header class="app-card-head">
+                    <img class="app-icon" src="assets/icon_nanikiru.png" alt="" width="64" height="64">
+                    <div>
+                        <span class="badge badge-practical">実践編</span>
+                        <h3 class="app-title">麻雀何切るAI</h3>
                     </div>
-                    <div class="app-visual-container">
-                        <div class="app-carousel" data-carousel="nanikiru">
-                            <div class="app-carousel-track">
-                                <div class="app-carousel-item active">
-                                    <img src="assets/nanikiru001.png" alt="麻雀何切るAI アプリ画面" class="app-screenshot" />
-                                </div>
-                                <div class="app-carousel-item">
-                                    <img src="assets/nanikiru002.png" alt="麻雀何切るAI アプリ画面" class="app-screenshot" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </header>
+                <p class="app-description">最新のAIを活用した実戦型トレーニングアプリ。<br>実際の対局で勝つための思考法が身につきます。</p>
+                <div class="shots">
+                        <img src="assets/nanikiru001.png" alt="麻雀何切るAI アプリ画面" loading="lazy">
+                        <img src="assets/nanikiru002.png" alt="麻雀何切るAI アプリ画面" loading="lazy">
                 </div>
-            </div>
-        </div>
-    </section>
+                <ul class="points">
+                        <li><span class="point-num">01</span><div><h4>総合的な局面解析</h4><p>手牌だけでなく他家の捨て牌や点数状況まで考慮</p></div></li>
+                        <li><span class="point-num">02</span><div><h4>幅広い局面に対応</h4><p>立直への対応、点数差考慮、鳴き判断まで網羅</p></div></li>
+                        <li><span class="point-num">03</span><div><h4>レベル別クイズ形式</h4><p>初心者から上級者まで自分に合った難易度で学習</p></div></li>
+                </ul>
+                <div class="app-download">
+                    <a href="https://apps.apple.com/us/app/%E9%BA%BB%E9%9B%80%E4%BD%95%E5%88%87%E3%82%8Bai/id6741804459" class="store-badge"><img src="assets/App_Store_Badge_JP.svg" alt="App Storeでダウンロード"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.NaokiNakamichi.nanikiru&hl=ja" class="store-badge"><img src="assets/GetItOnGooglePlay_Badge_Web_color_Japanese.png" alt="Google Playで手に入れよう"></a>
+                </div>
+            </article>
+            </section>
 
+            <!-- フッター -->
+            <footer class="footer">
+                <p>&copy; 2024-2026 麻雀ドリル. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
 
-    <!-- フッター -->
-    <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2024-2025 麻雀ドリル. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <script src="script.js?v=20261014b"></script>
 </body>
 </html>
